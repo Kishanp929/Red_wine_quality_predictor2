@@ -2,8 +2,17 @@ import numpy as np
 import pickle
 import streamlit as st
 import pandas as pd
+st.set_page_config(page_title="Check Your Red Wine",
+                   layout="wide",
+                   page_icon="🍷")
 
-loaded_model = pickle.load(open('Red_wine_SVR.sav', 'rb'))
+    
+# getting the working directory of the main.py
+working_dir = os.path.dirname(os.path.abspath(__file__))
+
+# loading the saved models
+
+loaded_model = pickle.load(open(f'{working_dir}/Red_wine_SVC.sav', 'rb'))
 
 columns = [ 'fixed acidity' ,	'volatile acidity' , 	'citric acid'	, 'residual sugar'
            , 	'chlorides' ,	'free sulfur dioxide' ,	'total sulfur dioxide'	, 'density' 
