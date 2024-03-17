@@ -19,7 +19,7 @@ def red_wine_quality_prediction(input_data):
     
     prediction = loaded_model.predict(input_data_df)
     
-    return f"Your Quality of Red Wine is {prediction}"
+    return f"Your Quality of Red Wine is {float( prediction ) }"
 
 def main():
 
