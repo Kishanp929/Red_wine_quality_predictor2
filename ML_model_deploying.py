@@ -9,7 +9,7 @@ st.set_page_config(page_title="Check Your Red Wine",
 
     
 # getting the working directory of the main.py
-loaded_model = pickle.load(open('diabetesRed_wine_SVR.sav', 'rb'))
+loaded_model = pickle.load(open('Red_wine_SVR.sav' , 'rb'))
 
 columns = [ 'fixed acidity' ,	'volatile acidity' , 	'citric acid'	, 'residual sugar'
            , 	'chlorides' ,	'free sulfur dioxide' ,	'total sulfur dioxide'	, 'density' 
