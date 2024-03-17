@@ -3,12 +3,6 @@ import pickle
 import streamlit as st
 import pandas as pd
 import os
-st.set_page_config(page_title="Check Your Red Wine",
-                   layout="wide",
-                   page_icon="🍷")
-
-    
-# getting the working directory of the main.py
 loaded_model = pickle.load(open('Red_wine_SVR.sav' , 'rb'))
 
 columns = [ 'fixed acidity' ,	'volatile acidity' , 	'citric acid'	, 'residual sugar'
@@ -27,44 +21,48 @@ def red_wine_quality_prediction(input_data):
     
     return f"Your Quality of Red Wine is {prediction}"
 
-
 def main():
 
     # giving a title
     st.title('Red Wine Prediction Web App')
+    # Add a slider widget
 
-    # Get input for 'fixed acidity'
-    fixed_acidity = st.text_input('fixed acidity value:')
 
-    # Get input for 'volatile acidity'
-    volatile_acidity = st.text_input('volatile acidity value:')
 
-    # Get input for 'citric acid'
-    citric_acid = st.text_input('citric acid value:')
+# Create sliders for each feature
+    fixed_acidity = st.slider("Fixed Acidity value : ", min_value = 4.0 , max_value=17.0, value=10.0, step=0.05)
+    st.write("Fixed Acidity value selected : ", fixed_acidity)
 
-    # Get input for 'residual sugar'
-    residual_sugar = st.text_input('residual sugar value:')
+    volatile_acidity = st.slider("Volatile Acidity value : ", min_value=0.08, max_value=2.3, value=1.0, step=0.01)
+    st.write("Volatile Acidity value selected : ", volatile_acidity)
 
-    # Get input for 'chlorides'
-    chlorides = st.text_input('chlorides value:')
+    citric_acid = st.slider("Citric Acid value : ", min_value=0.0, max_value=1.1, value=0.5, step=0.01)
+    st.write("Citric Acid value selected : ", citric_acid)
 
-    # Get input for 'free sulfur dioxide'
-    free_sulfur_dioxide = st.text_input('free sulfur dioxide value:')
+    residual_sugar = st.slider("Residual Sugar value : ", min_value=0.7, max_value=16.0, value=2.0, step=0.01)
+    st.write("Residual Sugar value selected : ", residual_sugar)
 
-    # Get input for 'total sulfur dioxide'
-    total_sulfur_dioxide = st.text_input('total sulfur dioxide value:')
+    chlorides = st.slider("Chlorides value : ", min_value=0.01, max_value=0.7, value=0.2, step=0.001)
+    st.write("Chlorides value selected : ", chlorides)
 
-    # Get input for 'density'
-    density = st.text_input('density value:')
+    free_sulfur_dioxide = st.slider("Free Sulfur Dioxide value : ", min_value=1.0, max_value=72.0, value=50.0, step=0.5)
+    st.write("Free Sulfur Dioxide value selected : ", free_sulfur_dioxide)
 
-    # Get input for 'pH'
-    pH = st.text_input('pH value:')
+    total_sulfur_dioxide = st.slider("Total Sulfur Dioxide value : ", min_value=6.0, max_value=289.0, value=50.0, step=0.2)
+    st.write("Total Sulfur Dioxide value selected : ", total_sulfur_dioxide)
 
-    # Get input for 'sulphates'
-    sulphates = st.text_input('sulphates value:')
+    density = st.slider("Density value : ", min_value=0.8, max_value=1.2, value=1.0, step=0.005)
+    st.write("Density value selected : ", density)
 
-    #    Get input for 'alcohol'
-    alcohol = st.text_input('alcohol value:')
+    pH = st.slider("pH value : ", min_value=0.0, max_value=14.0, value=10.0, step=0.01)
+    st.write("pH value selected : ", pH)
+
+    sulphates = st.slider("Sulphates value : ", min_value=0.2, max_value=2.1, value=1.0, step=0.001)
+    st.write("Sulphates value selected : ", sulphates)
+
+    alcohol = st.slider("Alcohol value : ", min_value=8.0, max_value=16.0, value=10.0, step=0.01)
+    st.write("Alcohol value selected : ", alcohol)
+
 
     #code for Predictions 
 
@@ -82,4 +80,5 @@ def main():
 
 if __name__ == '__main__':
     main()    
+
 
