@@ -3,7 +3,7 @@ import pickle
 import streamlit as st
 import pandas as pd
 import os
-loaded_model = pickle.load(open('C:\\Users\\Kishan\\OneDrive\\Desktop\\Model_deploying\\Red_wine_SVR.sav', 'rb'))
+loaded_model = pickle.load(open('Red_wine_SVR.sav', 'rb'))
 
 columns = [ 'fixed acidity' ,	'volatile acidity' , 	'citric acid'	, 'residual sugar'
            , 	'chlorides' ,	'free sulfur dioxide' ,	'total sulfur dioxide'	, 'density' 
