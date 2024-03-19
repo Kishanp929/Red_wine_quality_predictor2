@@ -93,7 +93,7 @@ if 1:
                  chlorides, free_sulfur_dioxide, total_sulfur_dioxide, density,
                  pH, sulphates, alcohol]
     input_data_df = pd.DataFrame( [features_values]) 
-    loaded_model = pickle.load(open('C:\\Users\\Kishan\\OneDrive\\Desktop\\Model_deploying\\Red_wine_SVR.sav', 'rb'))
+    loaded_model = pickle.load(open('Red_wine_SVR.sav', 'rb'))
     # input_array  = [[ 7.4 ,	0.700 ,	0.00 ,	1.9 ,	0.076 ,	11.0 ,
     #            	34.0 ,	0.99780 ,	3.51 ,	0.56 ,	9.4	
     #              ]]
